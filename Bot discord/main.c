@@ -60,11 +60,11 @@ int main() {
 	// SHOP //
 	printf("\n\n// SHOP //\n\n");
 	printf("Cafe / Chocolat Chaud | 15 000\n");
-	printf("Pinte de Bierre       | 50 000\n");
-	printf("                      | \n");
-	printf("                      | \n");
-	printf("                      | \n");
+	printf("Pinte de Biere        | 50 000\n");
+	printf("???                   | ???\n");
+	printf("???                   | ???\n");
+	printf("???                   | ???\n");
 	printf("Brazzers              | 300 000\n");
 	printf("Emotes                | ???\n");
-	printf("Badge Daily           | ???\n");
+	printf("Badge Daily ?         | a calculer\n");
 }
