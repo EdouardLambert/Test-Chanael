@@ -1,5 +1,4 @@
 #include "fonctions.h"
-#include "affichage.h"
 
 
 int xpLVL(int lvl, int* xp, int* xp_cumul) {
@@ -82,7 +81,7 @@ int calculDAILY(int daily, int nb_jours, bool badge_daily, bool affichage) {
 	}
 	if (affichage == true) {
 		if (badge_daily == false) {
-			printf("\n SANS badge daily : !daily = %3d coins\n", DAILY);
+			printf("\n\n SANS badge daily : !daily = %3d coins\n", DAILY);
 			printf(" Pendant %d jours : %5d coins\n", nb_jours, daily);
 		}
 		else {
@@ -102,10 +101,13 @@ int coinsTOTAL(int lvl) {
 	int mess = 0;
 	int mess_cumul = 0;
 	messLVL(lvl, &mess, &mess_cumul);
-	/*int daily = 0;
-	daily = calculDAILY(daily, 242, false, false);*/
-	int total = coins_cumul + (mess_cumul * 10);
-	printf("coins_cumul + (mess_cumul * 10)\n%8d + %d = %5d\n", coins_cumul, mess_cumul * 10, total);
+	int daily = 0;
+	daily = calculDAILY(daily, 242, false, false);
+	int total = coins_cumul + (mess_cumul * 10) + daily;
+	printf("coins_cumul + (mess_cumul * 10) + daily(SANS badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
+	daily = calculDAILY(daily, 242, true, false);
+	total = coins_cumul + (mess_cumul * 10) + daily;
+	printf("\ncoins_cumul + (mess_cumul * 10) + daily(AVEC badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
 	return 0;
 }
 

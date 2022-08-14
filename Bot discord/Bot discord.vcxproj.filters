@@ -21,15 +21,9 @@
     <ClCompile Include="fonctions.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="affichage.c">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fonctions.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="affichage.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

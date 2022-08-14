@@ -4,37 +4,22 @@
 int main() {
 	bool start = true;
 	int lvl = 0;
+	int xp = 0;
+	int xp_cumul = 0;
 	int daily = 0;
 	bool badge_daily = false;
-	char selectAction;
-	afficher_menu_principal();
-	do {
-		selectAction = getc(stdin);
-		switch (selectAction)
-		{
-		case 'L':
-		case 'l':
-			system("cls");
-			choixLVL1();
-			break;
-		case 'D':
-		case 'd':
-			system("cls");
-			choixDAILY1();
-			break;
-		case 'T':
-		case 't':
-			system("cls");
-			choixTOTAL();
-			break;
-		case 'S':
-		case 's':
-			system("cls");
-			shop();
-			break;
-		}
-	system("cls");
-	afficher_menu_principal();
-	} while (selectAction != 'X' && selectAction != 'x');
+
+	printf("\n\n// STATS LVL //\n\n");
+	for (lvl = 0; lvl <= 50; lvl++) {
+		statsLVL(lvl);
+	}
+
+	calculDAILY(daily, 242, false, true);
+	calculDAILY(daily, 242, true, true);
+
+	coinsTOTAL(lvl);
+
+	shop();
+	
 	return 0;
 }
