@@ -93,21 +93,55 @@ int calculDAILY(int daily, int nb_jours, bool badge_daily, bool affichage) {
 }
 
 
-int coinsTOTAL(int lvl) {
-	printf("\n\n// TOTAL COINS //\n\n");
-	int coin = 0;
-	int coins_cumul = 0;
-	coinLVL(lvl, &coin, &coins_cumul);
-	int mess = 0;
-	int mess_cumul = 0;
-	messLVL(lvl, &mess, &mess_cumul);
-	int daily = 0;
-	daily = calculDAILY(daily, 242, false, false);
-	int total = coins_cumul + (mess_cumul * 10) + daily;
-	printf("coins_cumul + (mess_cumul * 10) + daily(SANS badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
-	daily = calculDAILY(daily, 242, true, false);
-	total = coins_cumul + (mess_cumul * 10) + daily;
-	printf("\ncoins_cumul + (mess_cumul * 10) + daily(AVEC badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
+void ratioBADGE() {
+	printf("\n\n // RATIO BADGE DAILY //\n\n");
+	int coins_sans = 0;
+	int coins_avec = -PRIX_BADGE;
+	int nb_jours = 0;
+	int benef = 0;
+	
+	while (coins_sans >= coins_avec) {
+		coins_sans += DAILY;
+		coins_avec += BADGE_DAILY;
+		nb_jours++;
+		printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+	}
+	puts("\n");
+	while (nb_jours < 242) {
+		coins_sans += DAILY;
+		coins_avec += BADGE_DAILY;
+		nb_jours++;
+		printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+	}
+	puts("\n");
+	printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+	benef = coins_avec - coins_sans;
+	printf("\nBenefice : %d\n", benef);
+}
+
+int coinsTOTAL(int lvl, bool all) {
+	if (all == true) {
+		for (int niv = 0; niv <= lvl; niv++) {
+			coinsTOTAL(niv, false);
+		}
+	}
+	else {
+		int coin = 0;
+		int coins_cumul = 0;
+		coinLVL(lvl, &coin, &coins_cumul);
+		int mess = 0;
+		int mess_cumul = 0;
+		messLVL(lvl, &mess, &mess_cumul);
+		/*int daily = 0;
+		daily = calculDAILY(daily, 242, false, false);*/
+		int total = coins_cumul + (mess_cumul * 10) /* + daily*/;
+		printf("Au niveau %2d : %5d + %5d = %6d", lvl, coins_cumul, mess_cumul * 10, total);
+		printf("\t\tcoins_cumul + (mess_cumul * 10)\n");
+		/*daily = calculDAILY(daily, 242, true, false);
+		total = coins_cumul + (mess_cumul * 10) + daily;
+		printf("\ncoins_cumul + (mess_cumul * 10) + daily(AVEC badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
+		*/
+	}
 	return 0;
 }
 

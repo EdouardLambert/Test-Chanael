@@ -17,7 +17,11 @@ int main() {
 	calculDAILY(daily, 242, false, true);
 	calculDAILY(daily, 242, true, true);
 
-	coinsTOTAL(lvl);
+	ratioBADGE();
+
+	printf("\n\n// TOTAL COINS //\n\n");
+	coinsTOTAL(20, true);
+	
 
 	shop();
 	
