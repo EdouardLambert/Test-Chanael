@@ -44,8 +44,8 @@ int messLVL(int lvl, int* mess, int* mess_cumul) {
 	int xp = 0;
 	int xp_cumul = 0;
 	xpLVL(lvl, &xp, &xp_cumul);
-	*mess = xp / 7; // moyenne nombre message pour passer au prochain niveau
-	*mess_cumul = xp_cumul / 7; // moyenne nombre message total pour atteindre le prochain niveau
+	*mess = xp / XP; // moyenne nombre message pour passer au prochain niveau
+	*mess_cumul = xp_cumul / XP; // moyenne nombre message total pour atteindre le prochain niveau
 	return 0;
 }
 
@@ -134,9 +134,9 @@ int coinsTOTAL(int lvl, bool all) {
 		messLVL(lvl, &mess, &mess_cumul);
 		/*int daily = 0;
 		daily = calculDAILY(daily, 242, false, false);*/
-		int total = coins_cumul + (mess_cumul * 10) /* + daily*/;
+		int total = coins_cumul + (mess_cumul * COIN) /* + daily*/;
 		printf("Au niveau %2d : %5d + %5d = %6d", lvl, coins_cumul, mess_cumul * 10, total);
-		printf("\t\tcoins_cumul + (mess_cumul * 10)\n");
+		printf("\t\tcoins_cumul + (mess_cumul * %d)\n", COIN);
 		/*daily = calculDAILY(daily, 242, true, false);
 		total = coins_cumul + (mess_cumul * 10) + daily;
 		printf("\ncoins_cumul + (mess_cumul * 10) + daily(AVEC badge)\n%d + %d + %d = %d\n", coins_cumul, mess_cumul * 10, daily, total);
@@ -155,5 +155,5 @@ void shop() {
 	printf("???                   | ???\n");
 	printf("Brazzers              | 300 000\n");
 	printf("Emotes                | ???\n");
-	printf("Badge Daily ?         | a calculer\n");
+	printf("Badge Daily           | %d 000\n", PRIX_BADGE/1000);
 }

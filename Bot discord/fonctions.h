@@ -6,6 +6,8 @@
 #define DAILY 125
 #define BADGE_DAILY 350
 #define PRIX_BADGE 20000
+#define XP 7
+#define COIN 10
 
 int xpLVL(int lvl, int* xp, int* xp_cumul);
 
