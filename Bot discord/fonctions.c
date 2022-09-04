@@ -7,7 +7,7 @@ int xpLVL(int lvl, int* xp, int* xp_cumul) {
 	}
 	*xp_cumul = 0;
 	for (int niv = 0; niv <= lvl; niv++) {
-		*xp = (3.5 * niv + 150) * (pow(1.05, niv)); // xp pour aller au prochain niveau
+		*xp = (3.5 * niv + 200) * (pow(1.05, niv)); // xp pour aller au prochain niveau
 		*xp_cumul += *xp;
 	}
 	return 0;
@@ -148,12 +148,13 @@ int coinsTOTAL(int lvl, bool all) {
 
 void shop() {
 	printf("\n\n// SHOP //\n\n");
-	printf("Cafe / Chocolat Chaud | 15 000\n");
-	printf("Pinte de Biere        | 50 000\n");
-	printf("???                   | ???\n");
-	printf("???                   | ???\n");
-	printf("???                   | ???\n");
-	printf("Brazzers              | 300 000\n");
-	printf("Emotes                | ???\n");
-	printf("Badge Daily           | %d 000\n", PRIX_BADGE/1000);
+	printf("Cafe / Chocolat Chaud               | 15 000\n");
+	printf("Pinte de Biere                      | 50 000\n");
+	printf("Une souris pour votre fdp de chat   | 20 000\n");
+	printf("Anya fait un dessin                 | 50 000\n");
+	printf("???                                 | ???\n");
+	printf("???                                 | ???\n");
+	printf("Brazzers                            | 300 000\n");
+	printf("Emotes                              | ???\n");
+	printf("Badge Daily                         | %d 000\n", PRIX_BADGE/1000);
 }
