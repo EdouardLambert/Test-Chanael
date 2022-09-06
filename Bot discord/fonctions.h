@@ -4,8 +4,8 @@
 #include <math.h>
 
 #define DAILY 125
-#define BADGE_DAILY 350
-#define PRIX_BADGE 20000
+#define BADGE_DAILY 400
+#define PRIX_BADGE 30000
 #define XP 7
 #define COIN 10
 

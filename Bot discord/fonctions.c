@@ -7,7 +7,8 @@ int xpLVL(int lvl, int* xp, int* xp_cumul) {
 	}
 	*xp_cumul = 0;
 	for (int niv = 0; niv <= lvl; niv++) {
-		*xp = (3.5 * niv + 200) * (pow(1.05, niv)); // xp pour aller au prochain niveau
+		//*xp = (3.5 * niv + 250) * (pow(1.05, niv)); ancienne formule
+		*xp = (3.5 * niv + 500) * (pow(1.02, niv)); // xp pour aller au prochain niveau
 		*xp_cumul += *xp;
 	}
 	return 0;
@@ -63,8 +64,8 @@ int statsLVL(int lvl) {
 	int mess = 0;
 	int mess_cumul = 0;
 	messLVL(lvl, &mess, &mess_cumul);
-	printf("\n Lvl %2d : %5d xp | %4d messages | %5d coins\n", lvl, xp, mess, coin);
-	printf(" cumule : %5d xp | %4d messages | %5d coins\n", xp_cumul, mess_cumul, coins_cumul);
+	printf("\n Lvl %2d : %5d xp | %5d messages | %5d coins\n", lvl, xp, mess, coin);
+	printf(" cumule : %5d xp | %5d messages | %5d coins\n", xp_cumul, mess_cumul, coins_cumul);
 	return 0;
 }
 
@@ -104,19 +105,19 @@ void ratioBADGE() {
 		coins_sans += DAILY;
 		coins_avec += BADGE_DAILY;
 		nb_jours++;
-		printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+		printf("%5d | %6d | %d\n", coins_sans, coins_avec, nb_jours);
 	}
 	puts("\n");
-	while (nb_jours < 242) {
+	while (nb_jours < 180) {
 		coins_sans += DAILY;
 		coins_avec += BADGE_DAILY;
 		nb_jours++;
-		printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+		printf("%5d | %6d | %d\n", coins_sans, coins_avec, nb_jours);
 	}
 	puts("\n");
-	printf("%d | %d | %d\n", coins_sans, coins_avec, nb_jours);
+	printf("%5d | %6d | %d\n", coins_sans, coins_avec, nb_jours);
 	benef = coins_avec - coins_sans;
-	printf("\nBenefice : %d\n", benef);
+	printf("\nBenefice : %d | %d\n", benef, benef / COIN);
 }
 
 int coinsTOTAL(int lvl, bool all) {
