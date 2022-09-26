@@ -10,10 +10,10 @@ int main() {
 	bool badge_daily = false;
 
 	printf("\n\n// STATS LVL //\n\n");
-	for (lvl = 0; lvl <= 50; lvl++) {
+	for (lvl = 0; lvl <= 100; lvl++) {
 		statsLVL(lvl);
 	}
-
+	/*
 	calculDAILY(daily, 242, false, true);
 	calculDAILY(daily, 242, true, true);
 
@@ -24,6 +24,6 @@ int main() {
 	
 
 	shop();
-	
+	*/
 	return 0;
 }
